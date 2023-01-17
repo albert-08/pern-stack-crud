@@ -14,6 +14,8 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(routerApi);
 
+app.use((err: any, _req: any, res: any, _next:any) => res.json({ message: err.message }))
+
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 });
